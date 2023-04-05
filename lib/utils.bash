@@ -41,6 +41,11 @@ download_release() {
 	url="$GH_REPO/releases/download/v${version}/bp"
 
 	echo "* Downloading $TOOL_NAME release $version..."
+	echo "Logging about to download with curl with args:"
+	echo "${curl_opts[@]}"
+	echo "$filename"
+	echo "$url"
+
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 
 	echo "Logging: looking at downloaded file"
