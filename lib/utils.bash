@@ -59,7 +59,7 @@ download_release() {
 install_version() {
 	local install_type="$1"
 	local version="$2"
-	local install_path="${3%/bin}/bp"
+	local install_path="${3%/bin}"
 
 	echo "Logging: install_version 3rd arg"
 	echo $3
