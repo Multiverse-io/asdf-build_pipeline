@@ -41,32 +41,14 @@ download_release() {
 	url="$GH_REPO/releases/download/v${version}/bp"
 
 	echo "* Downloading $TOOL_NAME release $version..."
-	echo "Logging about to download with curl with args:"
-	echo "${curl_opts[@]}"
-	echo "$filename"
-	echo "$url"
 
-	#echo "Logging: calling curl an ugly way for debugging purposes!"
-	#curl -fsSL -o /Users/bernersiscool/.asdf/downloads/build_pipeline/0.0.8/bp -C - https://github.com/Multiverse-io/build_pipeline/releases/download/v0.0.8/bp || fail "NOOOO!"
-	#echo "Exiting on purpose! ARGHH!"
-	#exit 1
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
-
-	echo "Logging: looking at downloaded file"
-	ls "$filename"
 }
 
 install_version() {
 	local install_type="$1"
 	local version="$2"
 	local install_path="${3%/bin}"
-
-	echo "Logging: install_version 3rd arg"
-	echo $3
-	echo "Logging: install_version_args"
-	echo $@
-	#echo "Logging: install_path $install_path"
-	#ls $install_path
 
 	if [ "$install_type" != "version" ]; then
 		fail "asdf-$TOOL_NAME supports release installs only"
@@ -80,7 +62,7 @@ install_version() {
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 
 		echo "Logging: install_path/tool_cmd $install_path/$tool_cmd"
-		ls $install_path/$tool_cmd
+		echo "$install_path/$tool_cmd"
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
 		echo "$TOOL_NAME $version installation was successful!"
