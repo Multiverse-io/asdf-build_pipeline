@@ -46,6 +46,10 @@ download_release() {
 	echo "$filename"
 	echo "$url"
 
+	echo "Logging: calling curl an ugly way for debugging purposes!"
+	curl -fsSl -o /Users/bernersiscool/.asdf/downloads/build_pipeline/0.0.8/bp -C - https://github.com/Multiverse-io/build_pipeline/releases/download/v0.0.8/bp
+	echo "Exiting on purpose! ARGHH!"
+	exit 1
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 
 	echo "Logging: looking at downloaded file"
