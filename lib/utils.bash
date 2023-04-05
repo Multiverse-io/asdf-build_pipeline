@@ -52,6 +52,10 @@ install_version() {
 	local version="$2"
 	local install_path="${3%/bin}/bin"
 
+	echo "Logging: install_version 3rd arg"
+	ls $3
+	echo "Logging: install_path $install_path"
+	ls $install_path
 	echo "Logging: install_path $install_path"
 	ls $install_path
 
