@@ -64,7 +64,8 @@ install_version() {
 		echo "Logging: install_path/tool_cmd $install_path/$tool_cmd"
 		echo "$install_path/$tool_cmd"
 		echo "Running a debuggy hack to find bp version!"
-		~/.asdf/installs/build_pipeline/0.0.9/bp --version
+		~/.asdf/installs/build_pipeline/0.0.10/bp --version
+		echo "got here!"
 		exit 1
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
