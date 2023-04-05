@@ -46,7 +46,7 @@ download_release() {
 	echo "$filename"
 	echo "$url"
 
-	echo "Logging: calling curl an ugly way for debugging purposes!"
+	#echo "Logging: calling curl an ugly way for debugging purposes!"
 	#curl -fsSL -o /Users/bernersiscool/.asdf/downloads/build_pipeline/0.0.8/bp -C - https://github.com/Multiverse-io/build_pipeline/releases/download/v0.0.8/bp || fail "NOOOO!"
 	#echo "Exiting on purpose! ARGHH!"
 	#exit 1
@@ -65,8 +65,8 @@ install_version() {
 	echo $3
 	echo "Logging: install_version_args"
 	echo $@
-	echo "Logging: install_path $install_path"
-	ls $install_path
+	#echo "Logging: install_path $install_path"
+	#ls $install_path
 
 	if [ "$install_type" != "version" ]; then
 		fail "asdf-$TOOL_NAME supports release installs only"
