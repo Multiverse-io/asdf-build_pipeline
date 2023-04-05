@@ -57,20 +57,13 @@ install_version() {
 	(
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-		echo "DOWNLOAD PATH: $ASDF_DOWNLOAD_PATH"
-		echo "INSTALL PATH: $install_path"
 
 		chmod +x "$install_path/bp"
 
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 
-		echo "Logging: install_path/tool_cmd $install_path/$tool_cmd"
-		echo "$install_path/$tool_cmd"
-
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
-
-		echo "$TOOL_NAME $version installation was successful!"
 	) || (
 		rm -rf "$install_path"
 		fail "An error occurred while installing $TOOL_NAME $version."
