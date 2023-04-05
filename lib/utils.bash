@@ -54,6 +54,8 @@ install_version() {
 
 	echo "Logging: install_version 3rd arg"
 	ls $3
+	echo "Logging: install_version_args"
+	ls $@
 	echo "Logging: install_path $install_path"
 	ls $install_path
 	echo "Logging: install_path $install_path"
