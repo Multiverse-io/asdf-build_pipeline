@@ -58,7 +58,7 @@ install_version() {
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
-		chmod +x "$install_path/$tool_cmd"
+		chmod +x "$install_path/bp"
 
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
